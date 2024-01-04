@@ -20,6 +20,11 @@ class Block {
     return SHA256(`${timestamp}${lastHash}${data}`).toString();
   }
 
+  static blockHash(block) {
+    const { timestamp, lastHash, data } = block;
+    return Block.hash(timestamp, lastHash, data);
+  }
+
   static genesis() {
     return new this("Genesis time", "-----", "f1r57-h45h", []);
   }
